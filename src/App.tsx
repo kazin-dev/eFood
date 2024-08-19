@@ -1,5 +1,18 @@
+import Card from './components/Cards'
+import Header from './components/Header'
+import ListGrid from './components/Listagem'
+import { Container, GlobalCss } from './styles'
+
 function App() {
-  return <div></div>
+  return (
+    <>
+      <GlobalCss />
+      <Header />
+      <Container>
+        <ListGrid />
+      </Container>
+    </>
+  )
 }
 
 export default App
