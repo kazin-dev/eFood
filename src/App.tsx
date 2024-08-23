@@ -1,16 +1,17 @@
-import Header from './components/Header'
-import ListGrid from './components/Listagem'
-import { Container, GlobalCss } from './styles'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Produtos from './pages/Produtos'
+import { GlobalCss } from './styles'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalCss />
-      <Header />
-      <Container>
-        <ListGrid />
-      </Container>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/produtos" element={<Produtos />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

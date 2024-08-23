@@ -3,8 +3,10 @@ import { TagProps } from '../Tags'
 import { TagWrapper, TagContainer } from '../Tags/styles'
 import { Avaliacao, Card, CardContainer, CardInfo, P, Titulo } from './styles'
 import Estrela from '../../assets/images/estrela.png'
+import { Link } from 'react-router-dom'
 
 type Props = {
+  id: number
   nome: string
   avaliacao: number
   descricao: string
@@ -18,6 +20,7 @@ const Tag = ({ children, width = 'small' }: TagProps) => (
 )
 
 const Cards = ({
+  id,
   nome,
   avaliacao,
   descricao,
@@ -25,12 +28,12 @@ const Cards = ({
   categoria,
   destaque
 }: Props) => (
-  <Card>
+  <Card data-id={id}>
     <div style={{ position: 'relative' }}>
       <img
         src={imagem}
         alt={`${categoria} - ${nome}`}
-        style={{ width: '100%', height: 'auto' }}
+        style={{ width: '100%', height: 'auto', display: 'block' }}
       />
       <TagWrapper>
         {destaque && <Tag width="big">{destaque}</Tag>}
@@ -47,7 +50,9 @@ const Cards = ({
         </Avaliacao>
       </CardInfo>
       <P>{descricao}</P>
-      <PrimeiroBotao />
+      <Link to={'/produtos'}>
+        <PrimeiroBotao />
+      </Link>
     </CardContainer>
   </Card>
 )

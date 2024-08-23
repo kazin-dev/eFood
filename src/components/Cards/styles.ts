@@ -2,17 +2,17 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Card = styled.div`
+  display: block;
   width: 472.5px;
   height: 408px;
   background-color: ${cores.branco};
   color: ${cores.rosa};
-  border: 0 solid ${cores.rosa};
-  border-width: 0 1px 1px 1px;
 `
 
 export const CardContainer = styled.div`
-  display: block;
   padding: 8px;
+  border: 0 solid ${cores.rosa};
+  border-width: 0 1px 1px 1px;
 `
 
 export const Titulo = styled.h3`
@@ -25,6 +25,7 @@ export const Titulo = styled.h3`
 export const Avaliacao = styled.div`
   display: flex;
   align-items: center;
+  gap: 8px;
 `
 
 export const CardInfo = styled.div`

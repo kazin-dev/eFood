@@ -2,7 +2,8 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   rosa: '#E66767',
-  branco: '#fff'
+  branco: '#FFEBD9',
+  brancoBege: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -12,6 +13,10 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
     font-family: Roboto, sans-serif;
+  }
+
+  body{
+    background-color: ${cores.brancoBege};
   }
 `
 

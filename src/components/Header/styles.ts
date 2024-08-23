@@ -23,7 +23,7 @@ export const Titulo = styled.h1`
   font-weight: bold;
   font-size: 2.25rem;
   line-height: 1.2;
-  width: 50%;
+  width: 36%;
   height: auto;
   position: absolute;
   top: 236px;
