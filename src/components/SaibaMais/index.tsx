@@ -1,18 +1,32 @@
-import { Card, CardInfo } from './styles'
+import { Container } from '../../styles'
+import {
+  ButtonCard,
+  Card,
+  CardContainer,
+  CardInfo,
+  DescricaoCard,
+  TituloCard
+} from './styles'
 
-const ProdutosItem = () => (
-  <>
-    <div>
-      <Card>
-        <img src="caminho-da-imagem.jpg" alt="Descrição da imagem" />
+type Props = {
+  nome: string
+  descricao: string
+  imagem: string
+}
+
+const ProdutosItem = ({ nome, descricao, imagem }: Props) => (
+  <Container>
+    <Card>
+      <CardContainer>
+        <img src={imagem} alt={nome} />
         <CardInfo>
-          <h3>Nome do Produto</h3>
-          <p>Descrição breve do produto.</p>
-          <button>Comprar</button>
+          <TituloCard>{nome}</TituloCard>
+          <DescricaoCard>{descricao}</DescricaoCard>
+          <ButtonCard>Adicionar ao carrinho</ButtonCard>
         </CardInfo>
-      </Card>
-    </div>
-  </>
+      </CardContainer>
+    </Card>
+  </Container>
 )
 
 export default ProdutosItem

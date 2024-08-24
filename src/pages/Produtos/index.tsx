@@ -1,15 +1,15 @@
 import { Container } from '../../styles'
 import Footer from '../../components/Rodape'
 import HeaderCustom from '../../components/HeaderCustom'
-import ProdutosItem from '../../components/SaibaMais'
 import Apresentacao from '../../components/Banner'
+import ListGridProdutos from '../../components/ListagemProdutos'
 
 const Produtos = () => (
   <>
     <HeaderCustom />
     <Apresentacao />
     <Container>
-      <ProdutosItem />
+      <ListGridProdutos />
     </Container>
     <Footer />
   </>

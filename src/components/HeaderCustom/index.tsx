@@ -1,5 +1,5 @@
 import { Container } from '../../styles'
-import { HeaderCustomContainer, Imagem, Links } from './styles'
+import { HeaderCustomContainer, Imagem, Link, Links } from './styles'
 import LogoTitulo from '../../assets/images/logoTitulo.png'
 import Banner from '../../assets/images/Vector.png'
 import { Logo } from '../Header/styles'
@@ -10,7 +10,7 @@ const HeaderCustom = () => (
       <Container>
         <Links>
           <li>
-            <a href="#">Restaurantes</a>
+            <Link href="#">Restaurantes</Link>
           </li>
           <li>
             <Logo>
@@ -18,7 +18,7 @@ const HeaderCustom = () => (
             </Logo>
           </li>
           <li>
-            <a href="#">0 produto(s) no carrinho</a>
+            <Link href="#">0 produto(s) no carrinho</Link>
           </li>
         </Links>
       </Container>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
 
 export const HeaderCustomContainer = styled.header`
   background-color: #fff;
@@ -30,4 +31,12 @@ export const Logo = styled.div`
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
+`
+export const Link = styled.a`
+  text-decoration: none;
+  color: ${cores.rosa};
+  font-size: 18px;
+  font-weight: 900px;
+  line-height: 21.09px;
+  aling-items: center;
 `
