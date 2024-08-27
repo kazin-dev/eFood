@@ -12,9 +12,10 @@ type Props = {
   nome: string
   descricao: string
   imagem: string
+  onClick?: () => void
 }
 
-const ProdutosItem = ({ nome, descricao, imagem }: Props) => (
+const ProdutosItem = ({ nome, descricao, imagem, onClick }: Props) => (
   <Container>
     <Card>
       <CardContainer>
@@ -22,7 +23,7 @@ const ProdutosItem = ({ nome, descricao, imagem }: Props) => (
         <CardInfo>
           <TituloCard>{nome}</TituloCard>
           <DescricaoCard>{descricao}</DescricaoCard>
-          <ButtonCard>Adicionar ao carrinho</ButtonCard>
+          <ButtonCard onClick={onClick}>Adicionar ao carrinho</ButtonCard>
         </CardInfo>
       </CardContainer>
     </Card>

@@ -29,7 +29,7 @@ export const ListaLinks = styled.ul`
   display: flex;
   gap: 8px;
   position: relative;
-  z-index: 1; /* Garantir que os links fiquem sobre o logo */
+  z-index: 1;
 `
 
 export const Links = styled.li`
@@ -44,7 +44,7 @@ export const FooterText = styled.p`
   text-align: center;
   font-size: 10px;
   max-width: 600px;
-  margin-top: 40px; /* Ajustado para dar mais espaço ao texto */
+  margin-top: 40px;
   line-height: 11.72px;
   font-weight: 400;
   color: ${cores.rosa};

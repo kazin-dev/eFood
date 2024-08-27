@@ -14,7 +14,7 @@ export const BannerInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; /* Ajuste conforme necessário */
+  align-items: flex-start;
   height: 100%;
   padding: 20px;
   color: ${cores.branco};
@@ -32,6 +32,7 @@ export const BannerTitulo = styled.h2`
   font-weight: 100;
   line-height: 37.5px;
   color: #fff;
+  display: block;
 `
 
 export const BannerDescricao = styled.p`

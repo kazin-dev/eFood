@@ -3,6 +3,7 @@ import Footer from '../../components/Rodape'
 import HeaderCustom from '../../components/HeaderCustom'
 import Apresentacao from '../../components/Banner'
 import ListGridProdutos from '../../components/ListagemProdutos'
+import { CardInfo } from '../../components/SaibaMais/styles'
 
 const Produtos = () => (
   <>
@@ -10,6 +11,7 @@ const Produtos = () => (
     <Apresentacao />
     <Container>
       <ListGridProdutos />
+      <CardInfo />
     </Container>
     <Footer />
   </>

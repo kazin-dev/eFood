@@ -33,10 +33,9 @@ export const Logo = styled.div`
   transform: translateX(-50%);
 `
 export const Link = styled.a`
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 21.09px;
   text-decoration: none;
   color: ${cores.rosa};
-  font-size: 18px;
-  font-weight: 900px;
-  line-height: 21.09px;
-  aling-items: center;
 `

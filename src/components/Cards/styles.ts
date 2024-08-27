@@ -35,7 +35,6 @@ export const CardInfo = styled.div`
 `
 
 export const P = styled.p`
-  /* Melhor nome para o estilo */
   font-weight: 400;
   font-size: 14px;
   padding: 12px 0;

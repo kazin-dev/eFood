@@ -10,7 +10,7 @@ const HeaderCustom = () => (
       <Container>
         <Links>
           <li>
-            <Link href="#">Restaurantes</Link>
+            <Link href="/">Restaurantes</Link>
           </li>
           <li>
             <Logo>
