@@ -1,5 +1,4 @@
-import { Container } from '../../styles'
-import { HeaderCustomContainer, Imagem, Link, Links } from './styles'
+import { Container, HeaderCustomContainer, Imagem, Link, Links } from './styles'
 import LogoTitulo from '../../assets/images/logoTitulo.png'
 import Banner from '../../assets/images/Vector.png'
 import { Logo } from '../Header/styles'

@@ -3,8 +3,8 @@ import { Banner, BannerDescricao, BannerInfo, BannerTitulo } from './styles'
 
 const Apresentacao = () => (
   <Banner style={{ backgroundImage: `url('${BannerFundo}')` }}>
-    <BannerInfo>
-      <BannerTitulo>Italiano</BannerTitulo>
+    <BannerInfo className="container">
+      <BannerTitulo>Italiana</BannerTitulo>
       <BannerDescricao>La Dolce Vita Trattoria</BannerDescricao>
     </BannerInfo>
   </Banner>

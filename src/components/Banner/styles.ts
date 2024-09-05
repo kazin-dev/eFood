@@ -5,9 +5,13 @@ export const Banner = styled.div`
   width: 100%;
   height: 300px;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  position: relative;
+
+  .container {
+    max-width: 1088px;
+    width: 100%;
+    margin: 0 auto;
+  }
 `
 
 export const BannerInfo = styled.div`
@@ -16,9 +20,8 @@ export const BannerInfo = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   height: 100%;
-  padding: 20px;
+  padding: 20px 0;
   color: ${cores.branco};
-  margin-left: 17%;
 
   @media (max-width: 768px) {
     margin-left: 0;
@@ -27,12 +30,11 @@ export const BannerInfo = styled.div`
   }
 `
 
-export const BannerTitulo = styled.h2`
+export const BannerTitulo = styled.h3`
   font-size: 32px;
   font-weight: 100;
   line-height: 37.5px;
   color: #fff;
-  display: block;
 `
 
 export const BannerDescricao = styled.p`

@@ -20,8 +20,15 @@ export const Links = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  width: 100%;
   padding-top: 68px;
+  position: relative;
+
+  li:last-child {
+    margin-left: 40px;
+    position: absolute;
+    left: 81.3%;
+  }
 `
 
 export const Logo = styled.div`
@@ -31,11 +38,22 @@ export const Logo = styled.div`
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 `
+
 export const Link = styled.a`
   font-size: 18px;
   font-weight: 900;
-  line-height: 21.09px;
+  line-height: 21px;
   text-decoration: none;
   color: ${cores.rosa};
+  display: inline-flex;
+  white-space: nowrap; /* Garante que o texto não quebre para a próxima linha */
+  align-items: center; /* Mantém o alinhamento vertical */
+`
+
+export const Container = styled.div`
+  max-width: 1088px;
+  width: 100%;
+  margin: 0 auto;
 `
