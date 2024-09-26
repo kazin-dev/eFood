@@ -11,9 +11,16 @@ export const Overlay = styled.div`
   z-index: 999;
 `
 
+export const CardWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+`
+
 export const CardIMG = styled.img`
   width: 280px;
   height: 280px;
+  object-fit: cover;
 `
 
 export const ModalContent = styled.div`
@@ -22,30 +29,22 @@ export const ModalContent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
+  background-color: ${cores.rosa};
+  padding: 32px;
 `
 
 export const BotaoModal = styled.button`
   background-color: ${cores.brancoBege};
   color: ${cores.rosa};
   border: none;
-  padding: 4px 7px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 700;
   margin-top: 20px;
-  width: 218px;
-  height: 24px;
-`
-
-export const Card = styled.div`
-  width: 1024px;
-  height: 344px;
-  padding: 32px;
-  background-color: ${cores.rosa};
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: relative;
+  width: 220px;
+  height: 26px;
+  line-height: 1.5;
+  white-space: nowrap;
 `
 
 export const CardContainer = styled.div`
@@ -53,7 +52,7 @@ export const CardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 32px 32px 32px 24px;
+  padding: 0;
   width: 656px;
 `
 
@@ -75,7 +74,7 @@ export const DescricaoCard = styled.p`
 export const Info = styled.div`
   font-size: 14px;
   color: #fff;
-  margin-top: 10px;
+  margin-top: 20px;
   line-height: 22px;
   font-weight: 400;
 `
