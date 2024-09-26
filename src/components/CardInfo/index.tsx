@@ -4,7 +4,6 @@ import { getRestaurantes, Restaurante } from '../../API/api'
 
 const CardInfo: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(true)
-
   const [restaurantData, setRestaurantData] = useState<Restaurante | null>(null)
 
   const fetchRestaurantData = async () => {
@@ -30,7 +29,7 @@ const CardInfo: React.FC = () => {
   }
 
   if (!restaurantData) {
-    return <div>Carregando...</div>
+    return null
   }
 
   return (
