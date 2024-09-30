@@ -13,6 +13,7 @@ type Props = {
   imagem: string
   categoria: string
   destaque?: string
+  onClick?: () => void
 }
 
 const Tag = ({ children, width = 'small' }: TagProps) => (
@@ -26,18 +27,23 @@ const Cards = ({
   descricao,
   imagem,
   categoria,
-  destaque
+  destaque,
+  onClick
 }: Props) => (
-  <Card data-id={id}>
+  <Card data-id={id} onClick={onClick}>
     <div style={{ position: 'relative' }}>
       <img
         src={imagem}
         alt={`${categoria} - ${nome}`}
-        style={{ width: '100%', height: 'auto', display: 'block' }}
+        style={{
+          width: '100%',
+          height: '250px',
+          objectFit: 'cover',
+          display: 'block'
+        }}
       />
       <TagWrapper>
         {destaque && <Tag width="big">{destaque}</Tag>}
-
         <Tag>{categoria}</Tag>
       </TagWrapper>
     </div>
@@ -50,7 +56,7 @@ const Cards = ({
         </Avaliacao>
       </CardInfo>
       <P>{descricao}</P>
-      <Link to={'/produtos'}>
+      <Link to={{ pathname: '/produtos' }}>
         <PrimeiroBotao />
       </Link>
     </CardContainer>

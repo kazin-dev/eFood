@@ -5,13 +5,15 @@ import {
   CardContainer,
   CardInfo,
   DescricaoCard,
-  TituloCard
+  TituloCard,
+  CardImage
 } from './styles'
 
 type Props = {
   nome: string
   descricao: string
   imagem: string
+  preco: number
   onClick?: () => void
 }
 
@@ -19,7 +21,7 @@ const ProdutosItem = ({ nome, descricao, imagem, onClick }: Props) => (
   <Container>
     <Card>
       <CardContainer>
-        <img src={imagem} alt={nome} />
+        <CardImage src={imagem} alt={nome} />
         <CardInfo>
           <TituloCard>{nome}</TituloCard>
           <DescricaoCard>{descricao}</DescricaoCard>

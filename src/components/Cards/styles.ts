@@ -4,9 +4,10 @@ import { cores } from '../../styles'
 export const Card = styled.div`
   display: block;
   width: 472.5px;
-  height: 408px;
+  height: auto; // Ajustado para auto para evitar overflow
   background-color: ${cores.branco};
   color: ${cores.rosa};
+  margin-bottom: 20px; // Adicionado para espaçamento entre cards
 `
 
 export const CardContainer = styled.div`

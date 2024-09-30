@@ -21,36 +21,42 @@ const ComponentePai = () => {
           descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
           imagem={Pizza}
           onClick={toggleModal}
+          preco={0}
         />
         <ProdutosItem
           nome="Pizza Marguerita"
           descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
           imagem={Pizza}
           onClick={toggleModal}
+          preco={0}
         />
         <ProdutosItem
           nome="Pizza Marguerita"
           descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
           imagem={Pizza}
           onClick={toggleModal}
+          preco={0}
         />
         <ProdutosItem
           nome="Pizza Marguerita"
           descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
           imagem={Pizza}
           onClick={toggleModal}
+          preco={0}
         />
         <ProdutosItem
           nome="Pizza Marguerita"
           descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
           imagem={Pizza}
           onClick={toggleModal}
+          preco={0}
         />
         <ProdutosItem
           nome="Pizza Marguerita"
           descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
           imagem={Pizza}
           onClick={toggleModal}
+          preco={0}
         />
       </Grid>
     </div>

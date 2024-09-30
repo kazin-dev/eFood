@@ -1,24 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import CardModal from '../CardModal'
-import { getRestaurantes, Restaurante } from '../../API/api'
+import Pizza from '../../assets/images/image 3PizzaCardModal.png'
 
-const CardInfo: React.FC = () => {
+const CardInfo = () => {
   const [isModalOpen, setIsModalOpen] = useState(true)
-  const [restaurantData, setRestaurantData] = useState<Restaurante | null>(null)
-
-  const fetchRestaurantData = async () => {
-    try {
-      const response = await getRestaurantes()
-      const data = response.data[0]
-      setRestaurantData(data)
-    } catch (error) {
-      console.error('Erro ao buscar os dados do restaurante:', error)
-    }
-  }
-
-  useEffect(() => {
-    fetchRestaurantData()
-  }, [])
 
   const handleButtonClick = () => {
     console.log('Botão do modal clicado!')
@@ -28,20 +13,15 @@ const CardInfo: React.FC = () => {
     setIsModalOpen(false)
   }
 
-  if (!restaurantData) {
-    return null
-  }
-
   return (
     <div>
       {isModalOpen && (
         <CardModal
-          titulo={restaurantData.titulo}
-          descricao={restaurantData.descricao}
-          imagem={restaurantData.capa}
-          informacao={`Categoria: ${restaurantData.tipo}`}
-          cardapio={restaurantData.cardapio}
+          titulo="Pizza Marguerita"
+          descricao="A pizza Margherita é uma pizza clássica da culinária italiana, reconhecida por sua simplicidade e sabor inigualável. Ela é feita com uma base de massa fina e crocante, coberta com molho de tomate fresco, queijo mussarela de alta qualidade, manjericão fresco e azeite de oliva extra-virgem."
+          imagem={Pizza}
           onButtonClick={handleButtonClick}
+          informacao="Serve: de 2 a 3 pessoas"
           onClose={handleCloseModal}
         />
       )}

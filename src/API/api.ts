@@ -5,6 +5,8 @@ const api = axios.create({
 })
 
 export interface CardapioItem {
+  capa: string
+  titulo: string
   foto: string
   preco: number
   id: number
@@ -14,6 +16,10 @@ export interface CardapioItem {
 }
 
 export interface Restaurante {
+  nome: string
+  imagem: string
+  categoria: any
+  cardapio: unknown[]
   id: number
   titulo: string
   destacado: boolean
@@ -21,11 +27,14 @@ export interface Restaurante {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: CardapioItem[]
 }
 
 export const getRestaurantes = () => {
-  return api.get<Restaurante[]>('/restaurantes') // Tipagem para o array de restaurantes
+  return api.get<Restaurante[]>('/restaurantes')
+}
+
+export const getCardapioByRestauranteId = (id: number) => {
+  return api.get<CardapioItem[]>(`/restaurantes/${id}/cardapio`)
 }
 
 export default api

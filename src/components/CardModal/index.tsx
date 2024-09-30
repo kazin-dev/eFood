@@ -12,7 +12,6 @@ import {
   CardWrapper
 } from './styles'
 
-import { CardapioItem } from '../../API/api'
 import fechar from '../../assets/images/close 1.png'
 
 interface CardModalProps {
@@ -20,41 +19,37 @@ interface CardModalProps {
   descricao: string
   imagem: string
   informacao: string
-  cardapio: CardapioItem[]
   onButtonClick: () => void
   onClose: () => void
 }
 
 const CardModal: React.FC<CardModalProps> = ({
-  cardapio,
+  titulo,
+  descricao,
+  imagem,
+  informacao,
   onButtonClick,
   onClose
 }) => {
-  const firstItem = cardapio[0]
-
   return (
     <Overlay>
       <ModalContent>
         <CloseButton onClick={onClose}>
-          <img src={fechar} />
+          <img src={fechar} alt="Fechar" />
         </CloseButton>
-        {firstItem && (
-          <CardWrapper>
-            {' '}
-            <CardIMG src={firstItem.foto} alt={firstItem.nome} />
-            <CardContainer>
-              <TituloCard>{firstItem.nome}</TituloCard>
-              <DescricaoCard>{firstItem.descricao}</DescricaoCard>
-
-              <Info>
-                <p>Porção: {firstItem.porcao}</p>
-              </Info>
-              <BotaoModal onClick={onButtonClick}>
-                adicionar ao carrinho - R$ {firstItem.preco.toFixed(2)}
-              </BotaoModal>
-            </CardContainer>
-          </CardWrapper>
-        )}
+        <CardWrapper>
+          <CardIMG src={imagem} alt={titulo} />
+          <CardContainer>
+            <TituloCard>{titulo}</TituloCard>
+            <DescricaoCard>{descricao}</DescricaoCard>
+            <Info>
+              <p>{informacao}</p>
+            </Info>
+            <BotaoModal onClick={onButtonClick}>
+              Adicionar ao carrinho - R$ 60,90{' '}
+            </BotaoModal>
+          </CardContainer>
+        </CardWrapper>
       </ModalContent>
     </Overlay>
   )
