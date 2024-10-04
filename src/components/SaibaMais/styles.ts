@@ -6,7 +6,6 @@ export const Card = styled.div`
   height: auto;
   background-color: ${cores.rosa};
   color: ${cores.branco};
-  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `
@@ -39,7 +38,7 @@ export const DescricaoCard = styled.p`
 
 export const ButtonCard = styled.button`
   width: 100%;
-  height: 40px;
+  height: 24px;
   background-color: ${cores.branco};
   color: ${cores.rosa};
   border: none;
@@ -47,12 +46,6 @@ export const ButtonCard = styled.button`
   font-size: 14px;
   line-height: 16.41px;
   cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: ${cores.rosa};
-  }
 `
 
 export const CardImage = styled.img`

@@ -1,66 +1,30 @@
-import { useState } from 'react'
+import { CardapioItem } from '../../API/api'
 import ProdutosItem from '../SaibaMais'
-import Pizza from '../../assets/images/image 3PazzaMarguerita.png'
 import { Grid } from './styles'
-import CardInfo from '../CardInfo'
 
-const ComponentePai = () => {
-  const [mostrarModal, setMostrarModal] = useState(false)
+interface ListGridProdutosProps {
+  cardapio: CardapioItem[]
+  onAddToCart: (produto: CardapioItem) => void // Função para abrir o modal
+}
 
-  const toggleModal = () => {
-    setMostrarModal(!mostrarModal)
-  }
-
+const ListGridProdutos: React.FC<ListGridProdutosProps> = ({
+  cardapio,
+  onAddToCart
+}) => {
   return (
-    <div>
-      {mostrarModal && <CardInfo />}
-
-      <Grid>
+    <Grid>
+      {cardapio.map((item) => (
         <ProdutosItem
-          nome="Pizza Marguerita"
-          descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-          imagem={Pizza}
-          onClick={toggleModal}
-          preco={0}
+          key={item.id}
+          nome={item.nome}
+          descricao={item.descricao}
+          imagem={item.foto}
+          preco={item.preco}
+          onClick={() => onAddToCart(item)} // Passa o item selecionado para o modal
         />
-        <ProdutosItem
-          nome="Pizza Marguerita"
-          descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-          imagem={Pizza}
-          onClick={toggleModal}
-          preco={0}
-        />
-        <ProdutosItem
-          nome="Pizza Marguerita"
-          descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-          imagem={Pizza}
-          onClick={toggleModal}
-          preco={0}
-        />
-        <ProdutosItem
-          nome="Pizza Marguerita"
-          descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-          imagem={Pizza}
-          onClick={toggleModal}
-          preco={0}
-        />
-        <ProdutosItem
-          nome="Pizza Marguerita"
-          descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-          imagem={Pizza}
-          onClick={toggleModal}
-          preco={0}
-        />
-        <ProdutosItem
-          nome="Pizza Marguerita"
-          descricao="A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!"
-          imagem={Pizza}
-          onClick={toggleModal}
-          preco={0}
-        />
-      </Grid>
-    </div>
+      ))}
+    </Grid>
   )
 }
 
-export default ComponentePai
+export default ListGridProdutos

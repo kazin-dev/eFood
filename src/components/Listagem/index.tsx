@@ -22,6 +22,7 @@ const ListGrid: React.FC = () => {
   }, [])
 
   const handleCardapioClick = (id: number) => {
+    console.log('Restaurante ID:', id)
     navigate('/produtos', { state: { restauranteId: id } })
   }
 

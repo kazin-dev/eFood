@@ -34,7 +34,7 @@ export const getRestaurantes = () => {
 }
 
 export const getCardapioByRestauranteId = (id: number) => {
-  return api.get<CardapioItem[]>(`/restaurantes/${id}/cardapio`)
+  return api.get<Restaurante>(`/restaurantes/${id}`)
 }
 
 export default api
