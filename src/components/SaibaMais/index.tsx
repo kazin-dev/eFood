@@ -14,7 +14,7 @@ type Props = {
   descricao: string
   imagem: string
   preco: number
-  onClick?: () => void // Função para ser chamada no clique
+  onClick?: () => void
 }
 
 const ProdutosItem = ({ nome, descricao, imagem, onClick }: Props) => (
@@ -26,7 +26,6 @@ const ProdutosItem = ({ nome, descricao, imagem, onClick }: Props) => (
           <TituloCard>{nome}</TituloCard>
           <DescricaoCard>{descricao}</DescricaoCard>
           <ButtonCard onClick={onClick}>Adicionar ao carrinho</ButtonCard>{' '}
-          {/* Chama a função ao clicar */}
         </CardInfo>
       </CardContainer>
     </Card>

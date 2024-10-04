@@ -4,7 +4,7 @@ import { Grid } from './styles'
 
 interface ListGridProdutosProps {
   cardapio: CardapioItem[]
-  onAddToCart: (produto: CardapioItem) => void // Função para abrir o modal
+  onAddToCart: (produto: CardapioItem) => void
 }
 
 const ListGridProdutos: React.FC<ListGridProdutosProps> = ({
@@ -20,7 +20,7 @@ const ListGridProdutos: React.FC<ListGridProdutosProps> = ({
           descricao={item.descricao}
           imagem={item.foto}
           preco={item.preco}
-          onClick={() => onAddToCart(item)} // Passa o item selecionado para o modal
+          onClick={() => onAddToCart(item)}
         />
       ))}
     </Grid>

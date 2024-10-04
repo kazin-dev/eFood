@@ -12,12 +12,11 @@ const Produtos = () => {
   const location = useLocation()
   const [cardapio, setCardapio] = useState<CardapioItem[]>([])
   const [erro, setErro] = useState<string | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false) // Controla o estado do modal
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [produtoSelecionado, setProdutoSelecionado] =
-    useState<CardapioItem | null>(null) // Produto selecionado para o modal
+    useState<CardapioItem | null>(null)
   const restauranteId = location.state?.restauranteId || 1
 
-  // Função para abrir o modal com o produto selecionado
   const handleOpenModal = (produto: CardapioItem) => {
     setProdutoSelecionado(produto)
     setIsModalOpen(true)
@@ -25,7 +24,7 @@ const Produtos = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
-    setProdutoSelecionado(null) // Reseta o produto selecionado ao fechar
+    setProdutoSelecionado(null)
   }
 
   useEffect(() => {

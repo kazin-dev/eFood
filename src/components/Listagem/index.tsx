@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom' // Importando o hook de navegação
+import { useNavigate } from 'react-router-dom'
 import Cards from '../Cards'
 import { DivGrid } from './styles'
 import { getRestaurantes, Restaurante } from '../../API/api'
