@@ -48,8 +48,9 @@ export const Link = styled.a`
   text-decoration: none;
   color: ${cores.rosa};
   display: inline-flex;
-  white-space: nowrap; /* Garante que o texto não quebre para a próxima linha */
-  align-items: center; /* Mantém o alinhamento vertical */
+  white-space: nowrap;
+  align-items: center;
+  cursor: pointer;
 `
 
 export const Container = styled.div`

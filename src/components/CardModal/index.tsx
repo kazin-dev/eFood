@@ -18,6 +18,7 @@ interface CardModalProps {
   titulo: string
   descricao: string
   imagem: string
+  preco?: number
   informacao: string
   onButtonClick: () => void
   onClose: () => void
@@ -27,6 +28,7 @@ const CardModal: React.FC<CardModalProps> = ({
   titulo,
   descricao,
   imagem,
+  preco,
   informacao,
   onButtonClick,
   onClose
@@ -46,7 +48,7 @@ const CardModal: React.FC<CardModalProps> = ({
               <p>{informacao}</p>
             </Info>
             <BotaoModal onClick={onButtonClick}>
-              Adicionar ao carrinho - R$ 60,90{' '}
+              Adicionar ao carrinho - R$ {preco}{' '}
             </BotaoModal>
           </CardContainer>
         </CardWrapper>

@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import { getCardapioByRestauranteId, CardapioItem } from '../../API/api'
 import HeaderCustom from '../../components/HeaderCustom'
 import Apresentacao from '../../components/Banner'
@@ -7,6 +7,9 @@ import ListGridProdutos from '../../components/ListagemProdutos'
 import Footer from '../../components/Rodape'
 import { Container } from '../../styles'
 import CardModal from '../../components/CardModal'
+import Cart from '../../components/Cart'
+import { useDispatch } from 'react-redux'
+import { add } from '../../store/reducers/cart'
 
 const Produtos = () => {
   const location = useLocation()
@@ -15,6 +18,10 @@ const Produtos = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [produtoSelecionado, setProdutoSelecionado] =
     useState<CardapioItem | null>(null)
+  const [isCartOpen, setIsCartOpen] = useState(false)
+
+  const dispatch = useDispatch()
+
   const restauranteId = location.state?.restauranteId || 1
 
   const handleOpenModal = (produto: CardapioItem) => {
@@ -25,6 +32,17 @@ const Produtos = () => {
   const handleCloseModal = () => {
     setIsModalOpen(false)
     setProdutoSelecionado(null)
+  }
+
+  const handleCartClick = () => {
+    setIsCartOpen((prev) => !prev)
+  }
+
+  const handleAddToCart = () => {
+    if (produtoSelecionado) {
+      dispatch(add(produtoSelecionado))
+      setIsModalOpen(false)
+    }
   }
 
   useEffect(() => {
@@ -47,28 +65,28 @@ const Produtos = () => {
 
   return (
     <>
-      <HeaderCustom />
-      <Apresentacao />
+      <HeaderCustom onCartClick={handleCartClick} /> <Apresentacao />
       <Container>
         {erro ? (
           <p>{erro}</p>
         ) : (
-          <ListGridProdutos cardapio={cardapio} onAddToCart={handleOpenModal} /> // Passa a função para abrir o modal
+          <ListGridProdutos cardapio={cardapio} onAddToCart={handleOpenModal} />
         )}
 
-        {/* Renderiza o modal apenas quando um produto é selecionado */}
         {isModalOpen && produtoSelecionado && (
           <CardModal
             titulo={produtoSelecionado.nome}
             descricao={produtoSelecionado.descricao}
             imagem={produtoSelecionado.foto}
+            preco={produtoSelecionado.preco}
             informacao={`Serve: ${produtoSelecionado.porcao}`}
-            onButtonClick={() => console.log('Produto adicionado ao carrinho!')}
+            onButtonClick={handleAddToCart}
             onClose={handleCloseModal}
           />
         )}
       </Container>
       <Footer />
+      {isCartOpen && <Cart onClose={handleCartClick} />}{' '}
     </>
   )
 }
