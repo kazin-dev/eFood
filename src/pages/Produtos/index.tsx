@@ -8,8 +8,11 @@ import Footer from '../../components/Rodape'
 import { Container } from '../../styles'
 import CardModal from '../../components/CardModal'
 import Cart from '../../components/Cart'
+import Entrega from '../../components/PostEntrega'
 import { useDispatch } from 'react-redux'
 import { add } from '../../store/reducers/cart'
+import Pay from '../../components/PostPay'
+import Finalizado from '../../components/PostConf'
 
 const Produtos = () => {
   const location = useLocation()
@@ -19,10 +22,20 @@ const Produtos = () => {
   const [produtoSelecionado, setProdutoSelecionado] =
     useState<CardapioItem | null>(null)
   const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isEntregaOpen, setIsEntregaOpen] = useState(false)
+  const [isPayOpen, setIsPayOpen] = useState(false)
+  const [isFinalizadoOpen, setIsFinalizadoOpen] = useState(false)
+
+  const [orderData, setOrderData] = useState<any>(null)
 
   const dispatch = useDispatch()
-
   const restauranteId = location.state?.restauranteId || 1
+
+  const handleToggleEntrega = () => {
+    setIsEntregaOpen((prev) => !prev)
+    setIsCartOpen(false)
+    setIsPayOpen(false)
+  }
 
   const handleOpenModal = (produto: CardapioItem) => {
     setProdutoSelecionado(produto)
@@ -35,7 +48,7 @@ const Produtos = () => {
   }
 
   const handleCartClick = () => {
-    setIsCartOpen((prev) => !prev)
+    setIsCartOpen(!isCartOpen)
   }
 
   const handleAddToCart = () => {
@@ -43,6 +56,21 @@ const Produtos = () => {
       dispatch(add(produtoSelecionado))
       setIsModalOpen(false)
     }
+  }
+
+  const handleFinalizarPedido = () => {
+    setIsFinalizadoOpen(false)
+    setIsPayOpen(false)
+  }
+
+  const handleContinueDelivery = () => {
+    setIsEntregaOpen(false)
+    setIsPayOpen(true)
+  }
+
+  const handleFinalizarPagamento = (data: any) => {
+    setOrderData(data)
+    setIsFinalizadoOpen(true)
   }
 
   useEffect(() => {
@@ -65,12 +93,37 @@ const Produtos = () => {
 
   return (
     <>
-      <HeaderCustom onCartClick={handleCartClick} /> <Apresentacao />
+      <HeaderCustom onCartClick={handleCartClick} />
+      <Apresentacao />
       <Container>
         {erro ? (
           <p>{erro}</p>
         ) : (
-          <ListGridProdutos cardapio={cardapio} onAddToCart={handleOpenModal} />
+          <>
+            <ListGridProdutos
+              cardapio={cardapio}
+              onAddToCart={handleOpenModal}
+            />
+            {isEntregaOpen && (
+              <Entrega
+                onClose={handleToggleEntrega}
+                onContinue={handleContinueDelivery}
+              />
+            )}
+            {isPayOpen && (
+              <Pay
+                onReturnToEntrega={handleToggleEntrega}
+                onFinalizarPagamento={handleFinalizarPagamento}
+              />
+            )}
+
+            {isFinalizadoOpen && (
+              <Finalizado
+                orderData={orderData}
+                onClose={handleFinalizarPedido}
+              />
+            )}
+          </>
         )}
 
         {isModalOpen && produtoSelecionado && (
@@ -86,7 +139,9 @@ const Produtos = () => {
         )}
       </Container>
       <Footer />
-      {isCartOpen && <Cart onClose={handleCartClick} />}{' '}
+      {isCartOpen && (
+        <Cart onClose={handleCartClick} onContinue={handleToggleEntrega} />
+      )}
     </>
   )
 }

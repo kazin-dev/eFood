@@ -36,7 +36,7 @@ export const Aside = styled.aside`
 export const ContinueButton = styled.button`
   background-color: ${cores.brancoBege};
   color: ${cores.rosa};
-  padding: 10px;
+  padding: 4px;
   border: none;
   cursor: pointer;
   margin-top: 10px;

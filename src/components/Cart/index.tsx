@@ -14,7 +14,13 @@ import pizza from '../../assets/images/image 3PizzaCardModal.png'
 import excluir from '../../assets/images/lixeira-de-reciclagem 1.png'
 import { remove } from '../../store/reducers/cart'
 
-const Cart = ({ onClose }: { onClose: () => void }) => {
+const Cart = ({
+  onClose,
+  onContinue
+}: {
+  onClose: () => void
+  onContinue: () => void
+}) => {
   const dispatch = useDispatch()
   const carrinho = useSelector((state: RootState) => state.cart.items)
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice)
@@ -26,11 +32,11 @@ const Cart = ({ onClose }: { onClose: () => void }) => {
   return (
     <CartContainer>
       <Overlay onClick={onClose} />
+
       <Aside>
         <ul>
           {carrinho.map((item) => (
             <CardItem key={item.id}>
-              {' '}
               <img src={item.foto || pizza} alt={item.nome} />
               <div>
                 <h3>{item.nome}</h3>
@@ -46,7 +52,9 @@ const Cart = ({ onClose }: { onClose: () => void }) => {
           <p>Valor Total</p>
           <span>R$ {totalPrice.toFixed(2)}</span>
         </Total>
-        <ContinueButton>Continuar com a entrega</ContinueButton>
+        <ContinueButton onClick={onContinue}>
+          Continuar com a entrega
+        </ContinueButton>
       </Aside>
     </CartContainer>
   )
