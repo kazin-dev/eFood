@@ -36,6 +36,7 @@ export const Logo = styled.div`
     width: 80px;
     height: 36px;
     top: 15px;
+    left: 44%;
   }
 `
 

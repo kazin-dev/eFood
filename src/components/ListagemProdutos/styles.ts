@@ -8,12 +8,14 @@ export const Grid = styled.div`
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
+    margin-left: 10%;
   }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 40px;
+    margin-left: 10%;
   }
 
   @media (max-width: 480px) {

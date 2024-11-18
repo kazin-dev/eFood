@@ -31,19 +31,25 @@ export const Links = styled.ul`
   width: 100%;
   padding-top: 68px;
   position: relative;
+  flex-wrap: wrap;
+
+  li {
+    margin-right: 20px;
+  }
 
   li:last-child {
-    margin-left: 40px;
-    position: absolute;
-    left: 81.3%;
+    margin-left: auto;
+    position: relative;
   }
 
   @media (max-width: 768px) {
     padding-top: 40px;
-
+    li {
+      margin-right: 10px;
+    }
     li:last-child {
       position: static;
-      margin-left: 20px;
+      margin-left: 0;
     }
   }
 
@@ -94,6 +100,9 @@ export const Link = styled.a`
 
   @media (max-width: 480px) {
     font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
 `
 
