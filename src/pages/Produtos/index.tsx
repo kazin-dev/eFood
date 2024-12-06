@@ -53,8 +53,9 @@ const Produtos = () => {
 
   const handleAddToCart = () => {
     if (produtoSelecionado) {
-      dispatch(add(produtoSelecionado))
-      setIsModalOpen(false)
+      dispatch(add(produtoSelecionado)) // Adiciona o produto ao estado global
+      setIsModalOpen(false) // Fecha o modal
+      setIsCartOpen(true) // Abre o carrinho automaticamente
     }
   }
 
@@ -68,7 +69,7 @@ const Produtos = () => {
     setIsPayOpen(true)
   }
 
-  const handleFinalizarPagamento = (data: any) => {
+  const handleFinalizarPagamento = (data: unknown) => {
     setOrderData(data)
     setIsFinalizadoOpen(true)
   }

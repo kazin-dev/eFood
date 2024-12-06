@@ -42,10 +42,12 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    // Adiciona um item ao carrinho
     add: (state, action: PayloadAction<CartItem>) => {
       state.items.push(action.payload)
       state.totalPrice += action.payload.preco
     },
+    // Remove um item do carrinho e ajusta o total
     remove: (state, action: PayloadAction<number>) => {
       const index = state.items.findIndex((item) => item.id === action.payload)
       if (index !== -1) {
@@ -53,12 +55,15 @@ const cartSlice = createSlice({
         state.items.splice(index, 1)
       }
     },
+    // Define as informações de entrega
     setDeliveryInfo: (state, action: PayloadAction<DeliveryInfo>) => {
       state.deliveryInfo = action.payload
     },
+    // Define as informações de pagamento
     setPaymentInfo: (state, action: PayloadAction<PaymentInfo>) => {
       state.paymentInfo = action.payload
     },
+    // Limpa o carrinho e redefine todos os valores relacionados
     clearCart: (state) => {
       state.items = []
       state.totalPrice = 0
