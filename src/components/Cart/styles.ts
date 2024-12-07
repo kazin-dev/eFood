@@ -20,7 +20,7 @@ export const CartContainer = styled.div`
   height: 100%;
   display: flex;
   justify-content: flex-end;
-  z-index: 1;
+  z-index: 2;
 `
 
 export const Aside = styled.aside`

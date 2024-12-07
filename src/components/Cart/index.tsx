@@ -23,14 +23,22 @@ const Cart = ({
 }) => {
   const dispatch = useDispatch()
   const carrinho = useSelector((state: RootState) => state.cart.items)
-  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice)
+  // const totalPrice = useSelector((state: RootState) => state.cart.totalPrice)
+
+  const { items, totalPrice } = useSelector((state: RootState) => ({
+    items: state.cart.items,
+    totalPrice: state.cart.totalPrice
+  }))
+
+  console.log('Itens no carrinho:', items)
+  console.log('Preço total renderizado:', totalPrice)
 
   const handleRemove = (id: number) => {
     dispatch(remove(id))
   }
 
   return (
-    <CartContainer>
+    <CartContainer key={totalPrice}>
       <Overlay onClick={onClose} />
 
       <Aside>
@@ -52,6 +60,7 @@ const Cart = ({
           <p>Valor Total</p>
           <span>R$ {totalPrice.toFixed(2)}</span>
         </Total>
+
         <ContinueButton onClick={onContinue}>
           Continuar com a entrega
         </ContinueButton>

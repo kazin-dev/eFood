@@ -143,6 +143,11 @@ const Produtos = () => {
       {isCartOpen && (
         <Cart onClose={handleCartClick} onContinue={handleToggleEntrega} />
       )}
+
+      {/* {isCartOpen && (
+        <Cart onClose={handleCartClick} onContinue={handleToggleEntrega} />
+
+      )} */}
     </>
   )
 }

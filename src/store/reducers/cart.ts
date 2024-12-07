@@ -51,10 +51,12 @@ const cartSlice = createSlice({
     remove: (state, action: PayloadAction<number>) => {
       const index = state.items.findIndex((item) => item.id === action.payload)
       if (index !== -1) {
-        state.totalPrice -= state.items[index].preco
-        state.items.splice(index, 1)
+        const itemToRemove = state.items[index] // Obter o item antes de removê-lo
+        state.totalPrice = state.totalPrice - itemToRemove.preco // Subtrair o preço do item
+        state.items.splice(index, 1) // Remover o item do array
       }
     },
+
     // Define as informações de entrega
     setDeliveryInfo: (state, action: PayloadAction<DeliveryInfo>) => {
       state.deliveryInfo = action.payload
